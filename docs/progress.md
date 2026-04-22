@@ -22,3 +22,25 @@ Problemas encontrados
 Tiempo invertido
 
 Aproximadamente 3 - 4 horas 
+
+
+Dia 2
+
+Actividades
+
+- Creé la carpeta de Controllers 
+- Hice el AccountsController
+-Logré conectar el controller con la base de datos usando el DbContext
+- Cree un modelo nuevo para recibir datos del depósito (DepositRequest)
+-Hice el endpoint para consignar (POST /api/accounts/deposit)
+-Agregué unas validaciones básicas para que no lleguen datos vacíos
+
+Problemas enfrentados
+
+-Me enrede un poco con los namespaces, no entendia por que no encontraba el Data
+-Tuve varios errores de sintaxis por cosas pequeñas (como escribir mal HttpPost  y ok)
+-Todavia me confunde un poco la organizacion entre Models.controllers y Data
+
+Tiempo 
+
+Entre 1 hora y media a 2(andaba cansado no me fije muy bien)
