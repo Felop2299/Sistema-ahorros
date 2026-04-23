@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaAhorros.Models;
+using SistemaAhorros.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

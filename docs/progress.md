@@ -44,3 +44,25 @@ Problemas enfrentados
 Tiempo 
 
 Entre 1 hora y media a 2(andaba cansado no me fije muy bien)
+
+
+Dia 3
+
+Actividades
+
+-Termine el endpoint para crear cuentas, validando que el nombre no este vacio y que el valor inicial no sea negativo.
+-Implemente el endpoint de consignacion (deposit) donjde se busca la cuenta por numero, se suma el dinero al balance y se guarda tambien el movimiento en la tabla de transacciones.
+-Tambien hice el endpoint de retiro (withdraw), donde valido que la cuenta exista y que tenga fondos suficientes antes de desconectar el dinero.
+-Corregi problemas con la base de datos y la volvi  a crear para que coincidiera con los cambios del modelo.
+-Cree el endpoint para consultar saldo(balance)
+-Realice pruebas usando Postman para validar que los endpoint funcionaran  correctamente
+
+Problemas enfrentados
+
+-Error al actualizar la base de datos por que ya existian tablas creadas
+-Problemas con migraciones al cambiar el modelo(se dañaron y toco recrearlas)
+-Dudas sobre como estructurar correctamente los modelos 
+
+Tiempo
+
+Total de 4 horas
