@@ -66,3 +66,23 @@ Problemas enfrentados
 Tiempo
 
 Total de 4 horas
+
+
+Dia 4
+
+Actividades
+
+-Cree la carpeta scripts para organizar los archivos SQL del proyecto
+-Realice un script  para insertar varias cuentas de prueba en la base de datos
+-Cree un script para actualizar algunas cuentas,modificando el valor inicial y el saldo
+- Hice un script para registrar movimientos (consignaciones y retiros) directamente en la base de datos.
+-Desarrolle una consulta (JOIN) para mostrar un resumen por cuenta con totales de depósitos y retiros.
+
+Problemas enfrentados
+
+-Duda sobre qué datos debían coincidir entre InitialAmount y Balance.
+-Algo de inseguridad al momento de escribir los scripts, ya que no es algo que use normalmente.
+-Tuve que ajustar varias veces el enfoque para entender bien qué pedía exactamente el requerimiento.
+
+Tiempo aproximado 
+Alrededor de 3 horas 
