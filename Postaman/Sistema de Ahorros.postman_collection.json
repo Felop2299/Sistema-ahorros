@@ -1,0 +1,144 @@
+{
+  "info": {
+    "_postman_id": "92b70a8a-1027-45b4-a8b9-37c1009b3573",
+    "name": "Sistema de Ahorros",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40721958"
+  },
+  "item": [
+    {
+      "name": "Create Account",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"ownerName\": \"Peter\",\r\n  \"initialAmount\": 1000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5243/api/accounts/create",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "accounts",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deposit",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountNumber\": \"667e26c4-d802-4b53-a77d-820cac4684db\",\r\n    \"amount\" : 500\r\n\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5243/api/accounts/deposit",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "accounts",
+            "deposit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Withdraw",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountNumber\": \"667e26c4-d802-4b53-a77d-820cac4684db\",\r\n    \"amount\" : 200\r\n\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5243/api/accounts/withdraw",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "accounts",
+            "withdraw"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Balance",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5243/api/accounts/balance/667e26c4-d802-4b53-a77d-820cac4684db",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "accounts",
+            "balance",
+            "667e26c4-d802-4b53-a77d-820cac4684db"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Transactions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5243/api/accounts/transactions/667e26c4-d802-4b53-a77d-820cac4684db",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "accounts",
+            "transactions",
+            "667e26c4-d802-4b53-a77d-820cac4684db"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

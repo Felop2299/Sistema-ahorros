@@ -115,5 +115,16 @@ public class AccountsController: ControllerBase
             account.Balance
         }) ;
     }
+    [HttpGet("transactions/{accountNumber}")]
+    public IActionResult GetTransactions(string accountNumber)
+    {
+        var account = _context.Accounts.FirstOrDefault(a=>a.AccountNumber == accountNumber);
+        if(account == null)
+            return NotFound("Account not found");
+
+        var transactions = _context.Transactions.Where(t=>t.AccountId == account.Id).OrderByDescending(t=>t.Date).ToList();
+
+        return Ok(transactions) ;   
+    }
 }
 
