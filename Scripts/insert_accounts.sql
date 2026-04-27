@@ -1,4 +1,4 @@
-INSERT INTO Acccounts (OwnerName, AccountNumber , Balance, InitialAmount)
+INSERT INTO Accounts (OwnerName, AccountNumber , Balance, InitialAmount)
 VALUES
 
 ('Andres', 'ACC001', 1000, 1000),

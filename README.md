@@ -1,198 +1,174 @@
-Sistema de Gestión de Cuentas de Ahorros
-
-API REST desarrollada en ASP.NET Core para la administración de cuentas de ahorro.
-Permite crear cuentas, realizar consignaciones, retiros, consultar saldo e historial de movimientos.
+# Sistema de Gestión de Cuentas de Ahorros
 
 
-Tecnologías utilizadas
+Consiste en una API REST construida en ASP.NET Core para gestionar cuentas de ahorro, permitiendo crear cuentas, realizar consignaciones, retiros, consultar saldo y ver el historial de movimientos.
 
--ASP.NET Core (.NET)
--C#
--Entity Framework Core
--SQL Server
--Postman (pruebas funcionales)
--Git / GitHub
+## Tecnologías utilizadas
 
-Repositorio
+* ASP.NET Core (.NET)
+* C#
+* Entity Framework Core
+* SQL Server
+* Postman
+* Git / GitHub
+
+## Repositorio
 
 https://github.com/Felop2299/Sistema-ahorros
 
+## Funcionalidades implementadas
 
-Funcionalidades principales
+* Crear cuenta de ahorros
+* Consignar dinero
+* Retirar dinero
+* Consultar saldo de una cuenta
+* Consultar historial de transacciones
+* Persistencia de datos en SQL Server
 
--Crear cuenta de ahorros
--Consignar dinero
--Retirar dinero
--Consultar saldo actual
--Consultar historial de transacciones
--Persistencia en base de datos SQL Server
+## Cómo ejecutar el proyecto en ambiente local
 
+### 1. Clonar el repositorio
 
-Cómo ejecutar el proyecto en ambiente local
-
-
-1. Clonar el repositorio
+```bash 
 git clone https://github.com/Felop2299/Sistema-ahorros.git
-2. Ingresar a la carpeta del proyecto
+```
+
+### 2. Ingresar a la carpeta del proyecto
+
+```bash 
 cd Sistema-ahorros
-3. Configurar conexión a base de datos
+```
 
-Editar appsettings.json:
+### 3. Configurar la cadena de conexión
 
+Editar el archivo `appsettings.json` con la conexión local de SQL Server:
+
+```json 
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=SistemaAhorrosDB;Trusted_Connection=True;TrustServerCertificate=True;"
 }
-4. Ejecutar migraciones
+```
+
+### 4. Ejecutar migraciones
+
+```bash 
 dotnet ef database update
-5. Ejecutar la aplicación
+```
+
+### 5. Ejecutar la aplicación
+
+```bash
 dotnet run
-6. URL local
+```
+
+### 6. URL local
+
+```text 
 http://localhost:5243
+```
 
+## Endpoints principales
 
-Endpoints disponibles
+### Crear cuenta
 
+`POST /api/accounts/create`
 
-1. Crear cuenta
-
-POST
-
-/api/accounts/create
-
-Body:
-
+```json 
 {
   "ownerName": "Peter",
   "initialAmount": 1000
 }
+```
 
-Respuesta esperada:
+### Consignar dinero
 
+`POST /api/accounts/deposit`
+
+```json
 {
-  "message": "Account created successfully",
-  "accountNumber": "GUID_GENERATED"
-}
-
-2. Consignar dinero
-
-POST
-
-/api/accounts/deposit
-
-Body:
-
-{
-  "accountNumber": "667e26c4-d802-4b53-a77d-820cac4684db",
+  "accountNumber": "GUID",
   "amount": 500
 }
+```
 
-Respuesta:
+### Retirar dinero
 
-"Deposit of 500 was successful"
-3. Retirar dinero
+`POST /api/accounts/withdraw`
 
-POST
-
-/api/accounts/withdraw
-
-Body:
-
+```json 
 {
-  "accountNumber": "667e26c4-d802-4b53-a77d-820cac4684db",
+  "accountNumber": "GUID",
   "amount": 200
 }
+```
 
-Respuesta:
+### Consultar saldo
 
-"Withdraw of 200 was successful"
-4. Consultar saldo
+`GET /api/accounts/balance/{accountNumber}`
 
-GET
+### Consultar historial de movimientos
 
-/api/accounts/balance/{accountNumber}
+`GET /api/accounts/transactions/{accountNumber}`
 
-Ejemplo:
-
-/api/accounts/balance/667e26c4-d802-4b53-a77d-820cac4684db
-5. Consultar historial de movimientos
-
-GET
-
-/api/accounts/transactions/{accountNumber}
-
-Ejemplo:
-
-/api/accounts/transactions/667e26c4-d802-4b53-a77d-820cac4684db
-
-
-Base de datos
+## Base de datos
 
 Se utilizó SQL Server con Entity Framework Core.
 
 Tablas principales:
 
--Accounts
--Transactions
+* Accounts
+* Transactions
 
+Características implementadas:
 
-Características:
+* Llaves primarias autoincrementales
+* Relación entre cuentas y transacciones mediante llave foránea
+* Registro de movimientos realizados
 
-Llaves primarias autoincrementales (PK)
--Relación mediante llave foránea (FK)
--Persistencia de movimientos financieros
+## Scripts SQL incluidos
 
+En la carpeta `Scripts/` se incluyen los siguientes archivos:
 
-Scripts SQL incluidos
+* `insert_accounts.sql` → Inserción masiva de 10 cuentas ficticias
+* `update_accounts.sql` → Actualización del valor inicial de 5 cuentas
+* `insert_transactions.sql` → Inserción de consignaciones y retiros
+* `report_join.sql` → Reporte general con JOIN
 
-En la carpeta scripts/:
+## Pruebas realizadas
 
--insert_accounts.sql
-    Inserta 10 cuentas ficticias.
--update_accounts.sql
-    Modifica el valor inicial de 5 cuentas.
--transactions.sql
-    Inserta consignaciones y retiros.
--report.sql
-Consulta JOIN con reporte plano:
-    -Nombre Persona
-    -Número Cuenta
-    -Total Consignaciones
-    -Total Retiros
-    -Valor Inicial
-    -Saldo Actual
-
-    Colección Postman
-
-El proyecto incluye colección Postman con pruebas funcionales de todos los endpoints.
+Se incluye colección de Postman con pruebas de los endpoints principales.
 
 Ubicación:
 
-/Postman/
+```text 
+Postman/
+```
 
+También se adjunta carpeta de evidencias con capturas de funcionamiento.
 
-Estructura general del proyecto
+## Estructura general del proyecto
+
+```text 
 Sistema-ahorros/
 ├── Controllers/
 ├── Models/
 ├── Data/
 ├── Migrations/
-├── scripts/
-├── postman/
+├── Scripts/
+├── Postman/
+├── Evidencias/
 ├── README.md
-├── Program.cs
-├── appsettings.json
+```
 
+## Mejoras futuras
 
+* Implementar autenticación con JWT
+* Crear frontend web para consumir la API
+* Dockerizar la aplicación
+* Agregar validaciones adicionales
+* Mejorar logs y auditoría
 
-Posibles mejoras futuras
-Autenticación con JWT
-Frontend web consumiendo la API
-Dockerización
-Validaciones avanzadas
-Logs y auditoría
-
-
-Autor
+## Autor
 
 Andres Felipe Ortega
 

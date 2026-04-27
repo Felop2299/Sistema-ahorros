@@ -1,5 +1,5 @@
 SELECT
-A.OwnerNanme,
+A.OwnerName,
 A.AccountNumber,
 A.Balance,
 A.InitialAmount,
@@ -17,7 +17,7 @@ LEFT JOIN Transactions T ON A.Id = T.AccountId
 
 GROUP BY 
 
-A.OWnerNanme,
+A.OWnerName,
 A.AccountNumber,
 A.InitialAmount,
 A.Balance
